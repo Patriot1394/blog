@@ -6,10 +6,15 @@ var port = 8888;
 function startServer(routeQuery, handle) {
     function onRequest(request, response) {
         let data={};
-        data["GET"]=url.parse(request.url).query;  
         data["POST"]="";
+        data["GET"]=url.parse(request.url).query; 
+        if(data["GET"]==null) 
+            data["GET"]="";
+
+        let index = url.parse(request.url).pathname;
+        index = +parseFloat(index.split('/').reverse()[0]);//получаем последнее значение из адресной строки
         let pathname = request.method + url.parse(request.url).pathname;
-        
+        pathname = pathname.replace(index,"");//проблема если число повторяется /23/23
 
         request.on('data', function(chunk) {
             data["POST"] += chunk.toString();
@@ -18,7 +23,7 @@ function startServer(routeQuery, handle) {
         request.on('end', function() {
             console.log(data["POST"]);
             console.log(data["GET"]);
-            routeQuery(handle, pathname, response, data);
+            routeQuery(handle, pathname, response, data, index);
         });
 
 

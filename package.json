@@ -1,7 +1,6 @@
 {
   "name": "blog",
   "version": "1.0.0",
-  "description": "",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
@@ -11,5 +10,16 @@
   "dependencies": {
     "pg": "^7.4.0",
     "sequelize": "^4.28.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Patriot1394/blog.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/Patriot1394/blog/issues"
+  },
+  "homepage": "https://github.com/Patriot1394/blog#readme",
+  "description": ""
 }
