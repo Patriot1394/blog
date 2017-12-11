@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>    
+<meta charset="utf-8" /> 
+<style>
+    form {
+        width: 290px;
+        margin: 0 auto;
+        padding: 8px;
+        border: 1px solid black;
+    }
+</style>
+</head>
+<body>
+<form action="http://127.0.0.1:8888/" method="POST"  >
+    <p><span>Логин:</span> 
+        <span style="float: right"><input type="text" size="20"   name="login"  /></span></p>
+    <p><span>Пароль:</span>
+        <span style="float: right"> <input type="password" name="password" /></span></p>
+    <input type="submit" name="submit_form" value="POST" />
+</form>
+<form action="http://127.0.0.1:8888/" method="GET"  >
+    <p><span>Логин:</span> 
+        <span style="float: right"><input type="text" size="20"   name="login"  /></span></p>
+    <p><span>Пароль:</span>
+        <span style="float: right"> <input type="password" name="password" /></span></p>
+    <input type="submit" name="submit_form" value="GET" />
+</form>
+<h1 style="text-align: center; color: red">Добро пожаловать на наш сайт!</h1>
+</body>    
+</html>

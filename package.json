@@ -1,0 +1,15 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Zlo",
+  "license": "ISC",
+  "dependencies": {
+    "pg": "^7.4.0",
+    "sequelize": "^4.28.0"
+  }
+}
