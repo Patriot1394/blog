@@ -9,23 +9,27 @@
         padding: 8px;
         border: 1px solid black;
     }
+   textarea {
+    resize: none; /* Запрещаем изменять размер */
+   } 
 </style>
 </head>
 <body>
 <form action="http://127.0.0.1:8888/" method="POST"  >
     <p><span>Логин:</span> 
-        <span style="float: right"><input type="text" size="20"   name="login"  /></span></p>
+        <span style="float: right"><input type="text" size="20"   name="login" value = "login" /></span></p>
     <p><span>Пароль:</span>
-        <span style="float: right"> <input type="password" name="password" /></span></p>
+        <span style="float: right"> <input type="password" name="password" value = "password" /></span></p>
     <input type="submit" name="submit_form" value="POST" />
 </form>
 <form action="http://127.0.0.1:8888/" method="GET"  >
-    <p><span>Логин:</span> 
-        <span style="float: right"><input type="text" size="20"   name="login"  /></span></p>
-    <p><span>Пароль:</span>
-        <span style="float: right"> <input type="password" name="password" /></span></p>
+    <p><span>Тема:</span> 
+        <span style="float: right"><input type="text" size="20" name="topic" required=true value = "Topic"/></span></p>
+    <p><span>Сообщение:</span>
+        <span style="float: left" >
+            <textarea  type="text" name="message" cols="33" rows="5" required=true>Message</textarea>
+        </span></p>
     <input type="submit" name="submit_form" value="GET" />
 </form>
-<h1 style="text-align: center; color: red">Добро пожаловать на наш сайт!</h1>
 </body>    
 </html>
