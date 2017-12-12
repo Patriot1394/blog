@@ -11,10 +11,19 @@ function startServer(routeQuery, handle) {
         if(data["GET"]==null) 
             data["GET"]="";
 
-        let index = url.parse(request.url).pathname;
-        index = +parseFloat(index.split('/').reverse()[0]);//получаем последнее значение из адресной строки
-        let pathname = request.method + url.parse(request.url).pathname;
-        pathname = pathname.replace(index,"");//проблема если число повторяется /23/23
+        let index ={};
+        let comand = (url.parse(request.url).pathname).split('/');
+        index["post"] = +parseFloat(comand[(comand.indexOf("post"))+1])//получаем значение post из адресной строки если есть
+        index["comment"] = +parseFloat(comand[(comand.indexOf("comment"))+1])//получаем значение comment из адресной строки если есть
+        let pathname = request.method+"/";
+
+
+        if(!isNaN(index["post"])){
+            pathname+="post"
+            if(!isNaN(index["comment"])){
+                pathname+="/comment"
+            }
+        }
 
         request.on('data', function(chunk) {
             data["POST"] += chunk.toString();
@@ -28,7 +37,7 @@ function startServer(routeQuery, handle) {
 
 
     }
-    var server = http.createServer(onRequest);
+    let server = http.createServer(onRequest);
     server.listen(port);
     console.log("Server has started.");
 }

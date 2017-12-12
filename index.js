@@ -4,14 +4,22 @@ var requestHandlers = require("./requestHandlers");
 
 
 var handle = {}
+
 handle["POST/"] = requestHandlers.showFirstPOST;
+handle["POST/post"] = requestHandlers.addPost;
+handle["POST/post/comment"] = requestHandlers.addComment;
+
 handle["GET/"] = requestHandlers.showFirstGET;
-handle["PUT/"] = requestHandlers.updateNote;
-handle["/post"] = requestHandlers.post;
-/*
-handle["/get"] = requestHandlers.get;
-handle["/del"] = requestHandlers.del;
-handle["/upd"] = requestHandlers.upd;
-*/
+handle["GET/post"] = requestHandlers.showPost;
+handle["GET/post/comment"] = requestHandlers.showComment;
+
+
+handle["PUT/"] = requestHandlers.showFirstGET;
+handle["PUT/post"] = requestHandlers.updatePost;
+handle["PUT/post/comment"] = requestHandlers.updateComment;
+
+handle["DELETE/"] = requestHandlers.showFirstGET;
+handle["DELETE/post"] = requestHandlers.deletePost;
+handle["DELETE/post/comment"] = requestHandlers.deleteComment;
 
 server.startServer(router.routeQuery, handle);
